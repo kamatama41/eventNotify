@@ -1,4 +1,4 @@
-compassNotify
+eventNotify
 =============
 
-Chrome extention tool
+Event search And Calender app
