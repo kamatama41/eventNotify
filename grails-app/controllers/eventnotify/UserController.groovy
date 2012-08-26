@@ -1,7 +1,7 @@
 package eventnotify
 
 class UserController {
-    static scaffold = true 
+    static scaffold = User 
 }
 
 

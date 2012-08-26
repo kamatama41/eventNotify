@@ -3,9 +3,9 @@ package eventnotify
 class User {
     String userId
     String userName
-//    static hasmany = [keywords: Keyword]
+    static hasMany = [keywords: Keyword]
     static constraints = {
-//        userId unique: true
+        userId unique: true
     }
-//    String toString() { userId }
+    String toString() { userId }
 }
