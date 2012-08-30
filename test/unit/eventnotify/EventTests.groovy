@@ -10,32 +10,48 @@ import org.junit.*
  */
 @TestFor(Event)
 class EventTests {
-    void testValidation() {
-        def event = new Event(name:"test", date:new Date(1), place:"test", capacity:1)
-        
-        event.name = null
-        assert !event.validate()
+    Event target
 
-        event.name = "test"
-        event.place = null
-        assert !event.validate()
+    @Before
+    void setUp() {
+        target = new Event(eventId:1, name:"test", date:new Date(1), place:"test", capacity:1, url:'http://hogehoge.com')
+    }
+
+    void testValidation_不正なイベントID() {
+        target.eventId = 0
+        assert !target.validate()
+    }
+    void testValidation_不正なイベント名() {
+        target.name = null
+        assert !target.validate()
+    }
+    void testValidation_イベント場所はなくてもOK() {
+        target.place = null
+        assert target.validate()
+    }
+    void testValidation_イベント人数が負の数の場合() {
+        target.capacity = -1
+        assert !target.validate()
+    }
+    void testValidation_イベント人数が0人はOK() {
+        target.capacity = 0
+        assert target.validate()
         
-        event.place = "test"
-        event.capacity = -1
-        assert !event.validate()
-        
-        event.capacity = 1
-        assert event.validate()
+        target.url = null
+        assert !target.validate()
+    }
+    void testValidation_URLとして不適切() {
+        target.url = "abcdefg"
+        assert !target.validate()
     }
 
     void testPersistence() {
         assert Event.count == 0
         
-        def event = new Event(name:"TestEvent", date:new Date(1), place:"TestPlace", capacity:12)
-        event.save()
+        target.save()
         assert Event.count == 1
         
         def result = Event.list().get(0)
-        assert result == event
+        assert result == target
     }
 }
