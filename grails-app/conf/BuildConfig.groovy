@@ -6,6 +6,13 @@ grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
+// Cloud Bees Plugin's Config
+def env = System.getenv()
+cloudbees.account=env['CLOUD_BEES_ACCOUNT']
+cloudbees.api.key=env['CLOUD_BEES_API_KEY']
+cloudbees.api.secret=env['CLOUD_BEES_API_SECRET']
+cloudbees.permgensize = 128
+
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
     inherits("global") {
