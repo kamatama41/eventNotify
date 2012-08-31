@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
   <head>
     <meta name="layout" content="bookmarkMain"/>
-    <title>検索</title>
+    <title>勉強会検索</title>
   </head>
   <body>
     <div class="body">

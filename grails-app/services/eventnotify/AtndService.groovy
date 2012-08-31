@@ -1,7 +1,7 @@
 package eventnotify
 
-@Grab(group='rome', module='rome', version='1.0')
 import com.sun.syndication.io.impl.DateParser
+
 class AtndService {
     static final String BASE_URL = 'http://api.atnd.org/'
     
