@@ -41,6 +41,11 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
         // runtime 'mysql:mysql-connector-java:5.1.16'
+        runtime 'rome:rome:1.0'
+        runtime 'org.twitter4j:twitter4j-core:[2.2,)'
+        runtime ('org.codehaus.groovy.modules.http-builder:http-builder:0.5.2') {
+            excludes([ group: 'org.codehaus.groovy', name: 'groovy'])
+        }
     }
 
     plugins {

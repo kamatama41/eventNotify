@@ -1,11 +1,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
   <head>
     <meta name="layout" content="bookmarkMain"/>
-    <title>勉強会検索</title>
+    <title>イベント検索</title>
   </head>
   <body>
     <div class="body">
-      <h1>勉強会検索</h1>
+      <h1>イベント検索</h1>
       <g:form action="search">
         <div class="dialog">
           <table>
@@ -15,7 +15,15 @@
                   <label for="title">キーワード:</label>
                 </td>
                 <td valign="top" class="value ${hasErrors(bean:event,field:'keyword','errors')}">
-                  <g:textField name="keyword" value="${keyword}"/>
+                  <g:textField name="keyword" value="${searchResult.keyword}"/>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="name">
+                  <label for="title">今月～再来月開催のみ:</label>
+                </td>
+                <td valign="top">
+                  <g:checkBox name="onlyFewDays" value="${searchResult.onlyFewDays}" />
                 </td>
               </tr>
             </tbody>
@@ -27,7 +35,15 @@
       </g:form>
 
       <g:if test="${searchResult != null && searchResult.events != null && !searchResult.events.isEmpty()}">
-        　　     <h1>「${searchResult.searchParams.keyword}」の検索結果(${searchResult.available}件中${searchResult.searchParams.start}-${searchResult.searchParams.start+9}件目) <g:link action="prev" params="${searchResult.searchParams}">前</g:link>　<g:link action="next" params="${searchResult.searchParams}">次</g:link></h1>
+        　　     <h1>「${searchResult.keyword}」の検索結果(${searchResult.available}件中${searchResult.start}-${searchResult.end}件目)
+          <g:if test="${searchResult.prevable}">
+            <g:link action="prev" params="${searchResult.searchParams}">前</g:link>
+          </g:if>
+          <g:else>前</g:else>
+          <g:if test="${searchResult.nextable}">
+            <g:link action="next" params="${searchResult.searchParams}">次</g:link>
+          </g:if>
+          <g:else>次</g:else>
           <div class="list">
             <table>
               <thead>

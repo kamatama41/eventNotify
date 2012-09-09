@@ -18,7 +18,7 @@
     </div>
     <div class="nav">
       <span class="menuButton">
-        <g:link action="search">勉強会検索</g:link>
+        <g:link action="search">イベント検索</g:link>
       </span>
     </div>
     <p/>

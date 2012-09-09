@@ -11,7 +11,8 @@ class BookmarkController {
     def search() {
         def searchParams = [:]
         searchParams.start = params.start ? new Integer(params.start) : 1
-        searchParams.keyword = params.keyword
+        searchParams.keyword = params.keyword ?: ''
+        searchParams.onlyFewDays = (params.onlyFewDays || params.onlyFewDays == 'on')
         def result = atndService.search(searchParams)
         result.searchParams = searchParams
         [searchResult: result]
