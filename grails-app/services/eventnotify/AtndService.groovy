@@ -8,7 +8,7 @@ class AtndService {
 
     def search(searchParams) {
         if(!searchParams.keyword) return [:]
-        def uri = new URIBuilder(BASE_URL).setPath('events').setQuery(getSearchParamesURL(searchParams))
+        def uri = new URIBuilder(BASE_URL).setPath('events').setQuery(createSearchParames(searchParams))
         def xml = new XmlParser().parseText(uri.toURL().text)
         return perse(xml)
     }
@@ -19,7 +19,7 @@ class AtndService {
         return perse(xml).events[0]
     }
 
-    private def getSearchParamesURL(searchParams) {
+    private def createSearchParames(searchParams) {
         def urlParams = [:]
         urlParams.keyword = searchParams.keyword.split(' ').toList()
         if(searchParams.start) {
