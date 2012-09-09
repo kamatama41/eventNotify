@@ -8,7 +8,6 @@
 	<g:if env="production">
         <body>
             <h1>不明なエラーが発生しました</h1>
-            <g:renderException exception="${exception}" />
         </body>
 	</g:if>
 	<g:else>
