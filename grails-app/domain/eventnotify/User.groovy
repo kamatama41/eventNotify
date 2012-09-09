@@ -1,10 +1,13 @@
 package eventnotify
 
-class User {
-    String userId
-    String userName
+/**
+ * ユーザー情報を管理します。
+ * @author kamatama41
+ *
+ */
+class User implements Serializable {
+    String name
     static constraints = {
-        userId(blank:false)
-        userName(blank:false)
+        name(blank:true)
     }
 }

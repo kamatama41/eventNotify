@@ -2,6 +2,11 @@ package eventnotify
 
 import java.util.Date;
 
+/**
+ * イベント情報を管理します。
+ * @author kamatama41
+ *
+ */
 class Event {
     int eventId
     String name

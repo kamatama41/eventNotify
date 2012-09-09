@@ -15,16 +15,11 @@ class UserTests {
     
     @Before
     void setUp() {
-        target = new User(userId:"test_id", userName:"test_name")
+        target = new User(userName:"test_name")
     }
     
-    void test_validateion_userIdがnullのときエラーになる() {
-        target.userId = null
-        assert !target.validate()
-    }
-    
-    void test_validation_userNameがnullのときエラーになる() {
+    void test_validation_userNameがnullのときエラーにならない() {
         target.userName = null
-        assert !target.validate()
+        assert target.validate()
     }
 }

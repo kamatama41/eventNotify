@@ -77,6 +77,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="com.springsource.sts.grails.core.CLASSPATH_CONTAINER"/>
-	<classpathentry kind="lib" path="lib/rome-1.0.jar"/>
 	<classpathentry kind="output" path="target-eclipse/classes"/>
 </classpath>

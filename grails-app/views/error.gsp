@@ -5,7 +5,15 @@
 		<meta name="layout" content="main">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'errors.css')}" type="text/css">
 	</head>
-	<body>
-		<g:renderException exception="${exception}" />
-	</body>
+	<g:if env="production">
+        <body>
+            <h1>不明なエラーが発生しました</h1>
+            <g:renderException exception="${exception}" />
+        </body>
+	</g:if>
+	<g:else>
+        <body>
+            <g:renderException exception="${exception}" />
+        </body>
+	</g:else>
 </html>

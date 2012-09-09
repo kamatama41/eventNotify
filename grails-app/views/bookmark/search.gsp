@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
   <head>
-    <meta name="layout" content="bookmarkMain"/>
+    <meta name="layout" content="main"/>
     <title>イベント検索</title>
   </head>
   <body>
