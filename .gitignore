@@ -1,1 +1,2 @@
 /target
+/grails-app/services/eventnotify/TwitterConfig.groovy
